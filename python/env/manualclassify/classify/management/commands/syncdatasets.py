@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
         for dataset in active_datasets:
             #NOTE: timeseries_url *must* have a trailing slash
-            timeseries_url = f'{dashboard_url}/{dataset}/'
+            timeseries_url = f'{dashboard_url}{dataset}/'
             if not Timeseries.objects.filter(url=timeseries_url):
                 self.stdout.write(f'Creating timeseries {timeseries_url}')
                 timeseries = Timeseries(url=timeseries_url)
