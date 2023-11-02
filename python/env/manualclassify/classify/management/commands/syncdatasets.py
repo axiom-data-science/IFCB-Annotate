@@ -15,6 +15,7 @@ class Command(BaseCommand):
 
         active_datasets = [x[0] for x in
                     requests.get(f'{dashboard_url}secure/api/dt/datasets').json()['data'] if x[2]]
+        active_datasets.sort()
 
         for dataset in active_datasets:
             #NOTE: timeseries_url *must* have a trailing slash
